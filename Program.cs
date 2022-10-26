@@ -1,34 +1,62 @@
-﻿namespace HomeWork6;
+﻿namespace Homework8;
 public class Program {
 
   public static void Main(string[] args) {
-    Professor newprof1 = new Professor();
-    newprof1.prof_name = "Alice";
-    newprof1.class_teach = "Java";
-    newprof1.SetSalary(9000);
-    
-    Professor newprof2 = new Professor();
-    newprof2.prof_name = "Bob";
-    newprof2.class_teach = "Math";
-    newprof2.SetSalary(8000);
-    
-    Student newstu1 = new Student();
-    newstu1.stu_name = "Lisa";
-    newstu1.class_enroll = "Java";
-    newstu1.SetGrade(90);
-      
-    Student newstu2 = new Student();
-    newstu2.stu_name = "Tom";
-    newstu2.class_enroll = "Math";
-    newstu2.SetGrade(80);
-
-    double salary_diff = newprof1.GetSalary - newprof2.GetSalary;
-    double grade_sum = newstu1.GetGrade + newstu2.GetGrade;
-    Console.WriteLine("Professor " + newprof1.prof_name +" teaches "+ newprof1.class_teach + ", and the salary is " + newprof1.GetSalary);
-    Console.WriteLine("Professor " + newprof2.prof_name +" teaches "+ newprof2.class_teach + ", and the salary is " + newprof2.GetSalary);
-    Console.WriteLine("Student " + newstu1.stu_name +" enrolls "+ newstu1.class_enroll + ", and the grade is " + newstu1.GetGrade);
-    Console.WriteLine("Student " + newstu2.stu_name +" enrolls "+ newstu2.class_enroll + ", and the grade is " + newstu2.GetGrade);
-    Console.WriteLine("The salary difference between "+ newprof1.prof_name + " and " + newprof2.prof_name + " is: "+ salary_diff);
-    Console.WriteLine("The total grade of "+ newstu1.stu_name + " and " + newstu2.stu_name + " is: "+ grade_sum);
+    int[] int_array = {
+      11,
+      23,
+      31,
+      42,
+      53
+    };
+    int[, ] array_2d = {
+      {
+        1,
+        2,
+        3
+      },{
+        4,
+        5,
+        6
+      },{
+        7,
+        8,
+        9
+      }
+    };
+    ArraySum(int_array);
+    PrintAllOddNumber(array_2d);
+    ElementSum(array_2d);
+    DoubleArray(array_2d);
+  }
+  public static void ArraySum(int[] int_array) {
+    Console.WriteLine("The Sum of int_array is: " + int_array.Sum());
+  }
+  public static void PrintAllOddNumber(int[, ] array_2d) {
+    Console.WriteLine("Q1: Print all odd numbers: ");
+    foreach(int odd in array_2d) {
+      if (odd % 2 != 0) {
+        Console.Write(odd + " ");
+      } else {
+        continue;
+      }
+    }
+    Console.WriteLine(" ");
+  }
+  public static int ElementSum(int[, ] array_2d) {
+    int sum = array_2d.Cast < int > ().Sum();
+    Console.WriteLine("Q2: The sum of array elements: " + sum);
+    return sum;
+  }
+  public static int DoubleArray(int[, ] array_2d) {
+    Console.WriteLine("Q3: The new 2d array:");
+    int mult = 0;
+    for (int i = 0; i < 3; i++) {
+      for (int j = 0; j < 3; j++) {
+        mult = array_2d[i, j] * 2;
+        Console.Write(" " + mult);
+      }
+    }
+    return mult;
   }
 }
